@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".HomeActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/statusBarColor">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bằng Lái Xe"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="7dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/traffic_sign"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/bien_bao"
+            android:background="@android:color/white"
+            android:layout_margin="20dp"
+            android:scaleType="centerCrop"/>
+        <ImageButton
+            android:id="@+id/make_quizz"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/thi_sat_hach"
+            android:background="@android:color/white"
+            android:layout_margin="20dp"
+            android:scaleType="centerCrop"/>
+        <ImageButton
+            android:id="@+id/tips"
+            app:layout_constraintTop_toBottomOf ="@id/traffic_sign"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/meo_ghi_nho"
+            android:background="@android:color/white"
+            android:layout_margin="20dp"
+            android:scaleType="centerCrop"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
