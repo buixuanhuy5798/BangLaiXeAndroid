@@ -38,11 +38,11 @@ public class TrafficSignAdapter extends RecyclerView.Adapter<TrafficSignAdapter.
         holder.title.setText(signs.get(position).getNoidung());
         holder.image.setImageBitmap(signs.get(position).getBienbao());
         switch (signs.get(position).getLoaibien()) {
-            case 1: listener.onVisible("Bien bao nguy hiem"); break;
-            case 2: listener.onVisible("Bien bao cam"); break;
-            case 3: listener.onVisible("Bien bao hieu lenh");break;
-            case 4: listener.onVisible("Bien bao chi dan");break;
-            case 5: listener.onVisible("Bien bao phu");break;
+            case 1: listener.onVisible("Biển báo nguy hiểm"); break;
+            case 2: listener.onVisible("Biển báo cấm"); break;
+            case 3: listener.onVisible("Biển báo hiệu lệnh");break;
+            case 4: listener.onVisible("Biển báo chỉ dẫn");break;
+            case 5: listener.onVisible("Biển báo phụ");break;
             default: listener.onVisible("Bien bao");
         }
     }

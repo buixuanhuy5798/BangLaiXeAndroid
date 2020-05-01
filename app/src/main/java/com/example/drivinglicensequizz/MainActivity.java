@@ -27,6 +27,5 @@ public class MainActivity extends AppCompatActivity {
     private void toHomeScreen() {
         Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
         startActivity(homeIntent);
-        finish();
     }
 }
