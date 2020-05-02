@@ -1,5 +1,6 @@
 package com.example.drivinglicensequizz;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,13 @@ public class OptionDialog extends DialogFragment {
     private Button a1Buton;
     private Button b1Button;
     private Button cancelButton;
+
+    public interface CheckTypeContest {
+        void sendTypeContest(int type);
+    }
+
+    CheckTypeContest checkTypeContest;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,7 +38,7 @@ public class OptionDialog extends DialogFragment {
         a1Buton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("TEST DIALOG", "A1");
+                checkTypeContest.sendTypeContest(TypeOfContest.a1a2);
                 getDialog().dismiss();
             }
         });
@@ -38,11 +46,16 @@ public class OptionDialog extends DialogFragment {
         b1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("TEST DIALOG", "B1");
+                checkTypeContest.sendTypeContest(TypeOfContest.b1b2);
                 getDialog().dismiss();
             }
         });
         return view;
     }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        checkTypeContest = (CheckTypeContest) getActivity();
+    }
 }

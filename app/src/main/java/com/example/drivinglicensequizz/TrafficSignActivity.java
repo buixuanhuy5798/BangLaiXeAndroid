@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -66,4 +67,6 @@ public class TrafficSignActivity extends AppCompatActivity implements TrafficSig
     public void onVisible(String type) {
         textType.setText(type);
     }
+
+
 }
