@@ -99,6 +99,39 @@ public class TraficSignDBHelper extends SQLiteOpenHelper {
         cursor.close();
         return signs;
     }
+
+    public List<Question> getAllQuestionsA1A2(int type) {
+        List<Question> questions = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = openDatabase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Cursor cursor ;
+        if (type == TypeOfContest.a1a2) {
+            cursor = db.rawQuery("SELECT * FROM CAUHOI WHERE LOAIBANG2 = 0", null);
+        } else {
+            cursor = db.rawQuery("SELECT * FROM CAUHOI", null);
+        }
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            int id = cursor.getInt(0);
+            String cauhoi = cursor.getString(1);
+            int anh = cursor.getInt(2);
+            String a = cursor.getString(3);
+            String b = cursor.getString(4);
+            String c = cursor.getString(5);
+            String d = cursor.getString(6);
+            String dapan = cursor.getString(7);
+            String loaibang1 = cursor.getString(8);
+            String loaibang2 = cursor.getString(9);
+            questions.add(new Question(id, anh, cauhoi, a, b, c, d, dapan, loaibang1, loaibang2));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return questions;
+    }
 }
 
 
