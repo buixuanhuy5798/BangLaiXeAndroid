@@ -4,112 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@android:color/white"
+    android:orientation="vertical"
     tools:context=".HomeActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="47dp"
         android:background="@color/statusBarColor">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bằng Lái Xe"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="7dp"
-            android:textSize="20sp"
+            android:text="Bằng Lái Xe"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textAlignment="center"/>
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pagerTitle"
+        android:layout_width="match_parent"
+        android:layout_height="210dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="27dp"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageButton
             android:id="@+id/traffic_sign"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/bien_bao"
-            android:background="@android:color/white"
             android:layout_margin="20dp"
-            android:scaleType="centerCrop"/>
+            android:background="@android:color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bien_bao"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/bien_bao_textView"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/traffic_sign"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="Biển báo"
             android:layout_marginStart="20dp"
+            android:text="Biển báo"
             android:textAlignment="center"
+            android:textColor="#111"
             android:textSize="19sp"
-            android:textColor="#111"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/traffic_sign" />
+
         <ImageButton
             android:id="@+id/make_quizz"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/thi_sat_hach"
-            android:background="@android:color/white"
             android:layout_margin="20dp"
-            android:scaleType="centerCrop"/>
+            android:background="@android:color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/thi_sat_hach"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/lam_bai_thi_textView"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/make_quizz"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="Thi sát hạch"
             android:layout_marginEnd="20dp"
+            android:text="Thi sát hạch"
             android:textAlignment="center"
+            android:textColor="#111"
             android:textSize="19sp"
-            android:textColor="#111"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/make_quizz" />
+
         <ImageButton
             android:id="@+id/questions"
-            app:layout_constraintTop_toBottomOf ="@id/bien_bao_textView"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/cau_hoi"
-            android:background="@android:color/white"
             android:layout_margin="20dp"
-            android:scaleType="centerCrop"/>
+            android:background="@android:color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cau_hoi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bien_bao_textView" />
+
         <TextView
             android:id="@+id/ly_thuyet_textView"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/questions"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="Lý thuyết"
             android:layout_marginStart="20dp"
+            android:text="Lý thuyết"
             android:textAlignment="center"
+            android:textColor="#111"
             android:textSize="19sp"
-            android:textColor="#111"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/questions" />
+
         <ImageButton
             android:id="@+id/tips"
-            app:layout_constraintTop_toBottomOf ="@id/lam_bai_thi_textView"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/meo_ghi_nho"
-            android:background="@android:color/white"
             android:layout_margin="20dp"
-            android:scaleType="centerCrop"/>
+            android:background="@android:color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/meo_ghi_nho"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lam_bai_thi_textView" />
+
         <TextView
             android:id="@+id/meo_textView"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tips"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="Mẹo"
             android:layout_marginEnd="20dp"
+            android:text="Mẹo"
             android:textAlignment="center"
+            android:textColor="#111"
             android:textSize="19sp"
-            android:textColor="#111"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tips" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
