@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".TheoryTipActivity">
+
+    <LinearLayout
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/statusBarColor">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tip_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Mẹo"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/back_button_tip"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="13dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/back"
+                android:background="@color/statusBarColor"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.drivinglicensequizz.CustomViewPager
+            android:id="@+id/vp_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/viewGroupButtonTip"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white">
+
+        </com.example.drivinglicensequizz.CustomViewPager>
+
+        <LinearLayout
+            android:id="@+id/viewGroupButtonTip"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/ly_thuyet_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lý thuyết"
+                android:background="@color/statusBarColor"/>
+
+            <Button
+                android:id="@+id/thuc_hanh_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Thực hành" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
