@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/navigationBar"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/statusBarColor">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/kinhNghiemA1A2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Kinh nghiệm thực hành A1-A2"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/back"
+                    android:background="@color/statusBarColor"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/kinhNghiemThi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KINH NGHIỆM THI"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/navigationBar"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="13dp" />
+
+        <TextView
+            android:id="@+id/bai1_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bài 1 - Xuất phát:"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/kinhNghiemThi"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="13dp" />
+
+        <TextView
+            android:id="@+id/bai1_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Trước lúc lên xe tập lái bạn cần:\nKiểm tra, nếu cần chỉnh lại ghế ngồi cho phù hợp với mình để thực hiện các thao tác lái, côn, phanh, ga,... được dễ dàng.\nKiểm tra 2 gương sao cho thấy được điểm bánh xe sau tiếp xúc với mặt đường. Cài dây an toàn, để máy nổ và chờ lệnh xuất phát.\nKhi có lệnh xuất phát, bạn thực hiện như sau:\n - Bật đèn xi nhan trái.\n - Vào số 1, nhả côn từ từ để xe đi.\n - Khi qua vạch xuất phát khoảng 5m thì tắt xi nhan.\n - Khi xe đã đi bạn có thể nhả hết côn cho xe tự chạy, không cần đạp ga. Và đi đến bài số 2.\nCác lỗi bị trừ điểm:\n1. Không thắt dây an toàn, bị trừ 5 điểm.\n2. Không bật đèn xi nhan trái khi xuất phát trừ 5 điểm.\n3. Không tắt đèn xi nhan trái ở khoảng cách 5m sau vạch xuất phát (đèn xanh trên xe tắt), trừ 5 điểm.\n4. Không bật và tắt xi nhan trái kịp thời, bị trừ 5 điểm.\n5. Quá 20 giây kể từ khi có hiệu lệnh xuất phát (đèn xanh trên xe đã bật sáng) mà vẫn không đi qua vạch xuất phát, bị trừ 5 điểm.\n6. Để xe chết máy, bị trừ 5 điểm/1 lần.\n7. Để tốc độ động cơ quá 4000 vòng/phút, trừ 5 điểm.\n8. Lái xe vượt tốc độ quy định, trừ 5 điểm.\nBị loại khỏi trường thi khi:\n1. Quá 10 giây kể từ khi có lệnh xuất phát (đèn xanh trên xe bật sáng) mà xe vẫn chưa vượt vạch xuất phát.\n2. Xử lí tình huống không hợp lý gây tai nạn: bị truất quyền thi.\n"
+            app:layout_constraintTop_toBottomOf="@+id/bai1_title"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="13dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/bai2_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bài 2 - Dừng xe nhường đường cho người đi bộ:"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/bai1_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="13dp" />
+
+        <TextView
+            android:id="@+id/bai2_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Trước lúc lên xe tập lái bạn cần:\nKiểm tra, nếu cần chỉnh lại ghế ngồi cho phù hợp với mình để thực hiện các thao tác lái, côn, phanh, ga,... được dễ dàng.\nKiểm tra 2 gương sao cho thấy được điểm bánh xe sau tiếp xúc với mặt đường. Cài dây an toàn, để máy nổ và chờ lệnh xuất phát.\nKhi có lệnh xuất phát, bạn thực hiện như sau:\n - Bật đèn xi nhan trái.\n - Vào số 1, nhả côn từ từ để xe đi.\n - Khi qua vạch xuất phát khoảng 5m thì tắt xi nhan.\n - Khi xe đã đi bạn có thể nhả hết côn cho xe tự chạy, không cần đạp ga. Và đi đến bài số 2.\nCác lỗi bị trừ điểm:\n1. Không thắt dây an toàn, bị trừ 5 điểm.\n2. Không bật đèn xi nhan trái khi xuất phát trừ 5 điểm.\n3. Không tắt đèn xi nhan trái ở khoảng cách 5m sau vạch xuất phát (đèn xanh trên xe tắt), trừ 5 điểm.\n4. Không bật và tắt xi nhan trái kịp thời, bị trừ 5 điểm.\n5. Quá 20 giây kể từ khi có hiệu lệnh xuất phát (đèn xanh trên xe đã bật sáng) mà vẫn không đi qua vạch xuất phát, bị trừ 5 điểm.\n6. Để xe chết máy, bị trừ 5 điểm/1 lần.\n7. Để tốc độ động cơ quá 4000 vòng/phút, trừ 5 điểm.\n8. Lái xe vượt tốc độ quy định, trừ 5 điểm.\nBị loại khỏi trường thi khi:\n1. Quá 10 giây kể từ khi có lệnh xuất phát (đèn xanh trên xe bật sáng) mà xe vẫn chưa vượt vạch xuất phát.\n2. Xử lí tình huống không hợp lý gây tai nạn: bị truất quyền thi.\n"
+            app:layout_constraintTop_toBottomOf="@+id/bai2_title"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="13dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="10dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
