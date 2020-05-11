@@ -21,6 +21,7 @@ public class HomeActivity extends AppCompatActivity implements OptionDialog.Chec
     private ImageButton trafficSign;
     private ImageButton questionButton;
     private FragmentStatePagerAdapter pagerAdapter;
+    private ImageButton tipButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,17 @@ public class HomeActivity extends AppCompatActivity implements OptionDialog.Chec
             }
         });
         setUpHomePageView();
+        tipButton = findViewById(R.id.tips);
+        tipButton.setOnClickListener(toTipActivity);
     }
+
+    private View.OnClickListener toTipActivity = new View.OnClickListener() {
+        public void onClick(View v) {
+        Intent homeToTipIntent = new Intent(HomeActivity.this, TheoryTipActivity.class);
+        startActivity(homeToTipIntent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
+    };
 
     private View.OnClickListener toTrafficSignActivity = new View.OnClickListener() {
         public void onClick(View v) {

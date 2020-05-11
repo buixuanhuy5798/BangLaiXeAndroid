@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textLine1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SƠ ĐỒ THI THỰC HÀNH LÁI XE B1, B2"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="5dp" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/imageB1B2"
+            android:src="@drawable/b1b2"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/textLine1"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/textLine2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NỘI DUNG 11 BÀI SA HÌNH SÁT HẠCH LÁI XE B1, B2"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/imageB1B2"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            android:id="@+id/textLine3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BÀI 1: Xuất phát\nBÀI 2: Dừng xe nhường đường cho người đi bộ\nBÀI 3: Dừng xe, khởi hành trên dốc\nBÀI 6: Đi qua hàng đinh, qua đường vuông góc\nBÀI 5: Đi xe qua ngã tư có tín hiệu điều khiển\nBÀI 7: Ghép xe dọc vào nơi đỗ\nBÀI 8: Dừng xe nơi giao nhau với đường sắt\nBÀI 9: Tăng tốc, tăng số\nBÀI 10: Ghép xe ngang vào nơi đỗ\nBÀI 11: Kết thúc\n"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/textLine2"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="5dp" />
+
+        <Button
+            android:id="@+id/kinhNghiemThiB1B2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kinh nghiệm thi >>"
+            android:textStyle="bold"
+            android:textColor="#3046C1"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="@+id/textLine3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="5dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
