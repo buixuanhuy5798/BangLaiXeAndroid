@@ -20,8 +20,11 @@ public class HomeActivity extends AppCompatActivity implements OptionDialog.Chec
 
     private ImageButton trafficSign;
     private ImageButton questionButton;
+    private ImageButton makeQuizzButton;
     private FragmentStatePagerAdapter pagerAdapter;
     private ImageButton tipButton;
+
+    int checkButtonTapped = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,16 @@ public class HomeActivity extends AppCompatActivity implements OptionDialog.Chec
         questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                checkButtonTapped = 1;
+                OptionDialog dialog = new OptionDialog();
+                dialog.show(getSupportFragmentManager(), "OptionDialog");
+            }
+        });
+        makeQuizzButton = findViewById(R.id.make_quizz_button);
+        makeQuizzButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkButtonTapped = 2;
                 OptionDialog dialog = new OptionDialog();
                 dialog.show(getSupportFragmentManager(), "OptionDialog");
             }
@@ -60,9 +73,14 @@ public class HomeActivity extends AppCompatActivity implements OptionDialog.Chec
 
     @Override
     public void sendTypeContest(int type) {
-        Intent homeToQuestionIntent = new Intent(HomeActivity.this, QuestionsActivity.class);
-        homeToQuestionIntent.putExtra("TypeOfContest", type);
-        startActivity(homeToQuestionIntent);
+        Intent intent;
+        if (checkButtonTapped == 1) {
+            intent = new Intent(HomeActivity.this, QuestionsActivity.class);
+        } else {
+            intent = new Intent(HomeActivity.this, MakeQuizActivity.class);
+        }
+        intent.putExtra("TypeOfContest", type);
+        startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
