@@ -20,7 +20,7 @@ import java.util.List;
 
 public class QuestionsActivity extends AppCompatActivity {
 
-    TraficSignDBHelper trafficSignsHelper = new TraficSignDBHelper(this);
+    DatabaseHelper trafficSignsHelper = new DatabaseHelper(this);
     List<Question> questions;
     List<List<Question>> questionsPerPage = new ArrayList<>();
     List<Question> dataOnRyclerView = new ArrayList<>();

@@ -8,7 +8,6 @@ import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -18,7 +17,7 @@ import java.util.List;
 
 public class TrafficSignActivity extends AppCompatActivity implements TrafficSignAdapter.OnItemVisible {
 
-    TraficSignDBHelper trafficSignsHelper = new TraficSignDBHelper(this);
+    DatabaseHelper trafficSignsHelper = new DatabaseHelper(this);
     ImageButton backButton;
     List<TrafficSign> signs;
     RecyclerView recyclerView;
