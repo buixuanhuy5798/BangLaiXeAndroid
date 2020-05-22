@@ -1,5 +1,6 @@
 package com.example.drivinglicensequizz;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -59,12 +60,12 @@ public class ThucHanhFragment extends Fragment implements View.OnClickListener {
             case R.id.button_A1_A2:
                 mCurrentFragmentTag = TAG_A1_A2;
                 mButtonA1A2.setBackgroundColor(getResources().getColor(R.color.statusBarColor));
-                mButtonB1B2.setBackgroundResource(android.R.drawable.btn_default);
+                mButtonB1B2.setBackgroundColor(Color.parseColor("#FFAAAAAA"));
                 break;
             case R.id.button_B1_B2:
                 mCurrentFragmentTag = TAG_B1_B2;
                 mButtonB1B2.setBackgroundColor(getResources().getColor(R.color.statusBarColor));
-                mButtonA1A2.setBackgroundResource(android.R.drawable.btn_default);
+                mButtonA1A2.setBackgroundColor(Color.parseColor("#FFAAAAAA"));
                 break;
         }
         changeFragment();
