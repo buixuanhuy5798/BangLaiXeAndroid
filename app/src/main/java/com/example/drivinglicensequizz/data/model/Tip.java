@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.data.model;
 
 public class Tip {
     int id;

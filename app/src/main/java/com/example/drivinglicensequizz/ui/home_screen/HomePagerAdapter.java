@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.home_screen;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -8,11 +8,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
-public class MainPagerAdapter extends FragmentStatePagerAdapter {
+public class HomePagerAdapter extends FragmentStatePagerAdapter {
 
     private List<Fragment> fragmentList;
 
-    public MainPagerAdapter(@NonNull FragmentManager fm, int behavior, List<Fragment> fragmentList) {
+    public HomePagerAdapter(@NonNull FragmentManager fm, int behavior, List<Fragment> fragmentList) {
         super(fm, behavior);
         this.fragmentList = fragmentList;
     }

@@ -6,7 +6,7 @@
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/make_quizz_row_bg"
+        android:id="@+id/choose_contest_row_bg"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:src="@drawable/make_quizz_background"
@@ -20,18 +20,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/pass"
-            app:layout_constraintTop_toTopOf="@id/make_quizz_row_bg"
-            app:layout_constraintEnd_toEndOf="@id/make_quizz_row_bg"
+            app:layout_constraintTop_toTopOf="@id/choose_contest_row_bg"
+            app:layout_constraintEnd_toEndOf="@id/choose_contest_row_bg"
             android:layout_marginEnd="11dp"
             android:layout_marginTop="11dp"/>
         <ImageView
-            android:id="@+id/make_quizz_row_suffle_im"
+            android:id="@+id/choose_contest_suffle_im"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/make_quizz_row_bg"
-            app:layout_constraintBottom_toBottomOf="@id/make_quizz_row_bg"
-            app:layout_constraintStart_toStartOf="@id/make_quizz_row_bg"
-            app:layout_constraintEnd_toEndOf="@id/make_quizz_row_bg"
+            app:layout_constraintTop_toTopOf="@id/choose_contest_row_bg"
+            app:layout_constraintBottom_toBottomOf="@id/choose_contest_row_bg"
+            app:layout_constraintStart_toStartOf="@id/choose_contest_row_bg"
+            app:layout_constraintEnd_toEndOf="@id/choose_contest_row_bg"
             android:layout_margin="10dp"
             android:src="@drawable/ic_shuffle_black_24dp"/>
     <TextView

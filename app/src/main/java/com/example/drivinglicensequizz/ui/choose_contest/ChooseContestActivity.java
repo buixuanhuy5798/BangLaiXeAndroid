@@ -1,27 +1,27 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.choose_contest;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class MakeQuizActivity extends AppCompatActivity implements MakeQuizRowAdapter.ItemClickListener {
+import com.example.drivinglicensequizz.R;
+
+public class ChooseContestActivity extends AppCompatActivity implements ChooseContestRowAdapter.ItemClickListener {
 
     int typeOfContext = 1;
     ImageButton backButton;
     RecyclerView recyclerView;
-    MakeQuizRowAdapter makeQuizRowAdapter;
+    ChooseContestRowAdapter chooseContestRowAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_make_quiz);
+        setContentView(R.layout.activity_choose_contest);
         setUpLayout();
         setUpActions();
         setUpData();
@@ -42,10 +42,10 @@ public class MakeQuizActivity extends AppCompatActivity implements MakeQuizRowAd
     }
 
     private void setUpData() {
-        makeQuizRowAdapter = new MakeQuizRowAdapter(this, this);
+        chooseContestRowAdapter = new ChooseContestRowAdapter(this, this);
         GridLayoutManager layout = new GridLayoutManager(this,3);
         recyclerView.setLayoutManager(layout);
-        recyclerView.setAdapter(makeQuizRowAdapter);
+        recyclerView.setAdapter(chooseContestRowAdapter);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.example.drivinglicensequizz;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +12,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.drivinglicensequizz.data.model.Tip;
+import com.example.drivinglicensequizz.data.source.DatabaseHelper;
+
 import java.util.List;
 
 public class LyThuyetFragment extends Fragment implements TipAdapter.OnItemVisible {
 
     private TipAdapter tipAdapter;
-    private TipDBHelper tipDBHelper;
+    private DatabaseHelper tipDBHelper;
     private List<Tip> tips;
     private TextView titleTheory;
     private TextView textType;
@@ -45,7 +47,7 @@ public class LyThuyetFragment extends Fragment implements TipAdapter.OnItemVisib
         textType = view.findViewById(R.id.textType);
         titleTheory = view.findViewById(R.id.theory_title);
         recyclerView = view.findViewById(R.id.lythuyet_recyclerview);
-        tipDBHelper = new TipDBHelper(this.getContext());
+        tipDBHelper = new DatabaseHelper(this.getContext());
         tips = tipDBHelper.getAllTips();
         tipAdapter = new TipAdapter(this.getContext(), tips, this);
         recyclerView.setAdapter(tipAdapter);

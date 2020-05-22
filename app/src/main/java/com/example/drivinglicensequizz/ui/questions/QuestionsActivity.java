@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.questions;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.example.drivinglicensequizz.R;
+import com.example.drivinglicensequizz.data.model.Question;
+import com.example.drivinglicensequizz.data.model.TypeOfContest;
+import com.example.drivinglicensequizz.data.source.DatabaseHelper;
 
 import java.io.IOException;
 import java.util.ArrayList;

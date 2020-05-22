@@ -1,24 +1,17 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.tips.tips_theory;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
-import java.util.List;
+import com.example.drivinglicensequizz.R;
+import com.example.drivinglicensequizz.ui.custom_ui.CustomViewPager;
 
 public class TheoryTipActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.choose_contest;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,14 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.drivinglicensequizz.R;
 
-public class MakeQuizRowAdapter extends RecyclerView.Adapter<MakeQuizRowAdapter.MakeQuizViewHodler> {
+public class ChooseContestRowAdapter extends RecyclerView.Adapter<ChooseContestRowAdapter.MakeQuizViewHodler> {
     Context context;
     ItemClickListener itemClickListener;
 
-    public MakeQuizRowAdapter(Context context, ItemClickListener itemClickListener) {
+    public ChooseContestRowAdapter(Context context, ItemClickListener itemClickListener) {
         this.context = context;
         this.itemClickListener = itemClickListener;
     }
@@ -26,7 +25,7 @@ public class MakeQuizRowAdapter extends RecyclerView.Adapter<MakeQuizRowAdapter.
     @Override
     public MakeQuizViewHodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.make_quiz_row, parent, false);
+        View view = inflater.inflate(R.layout.choose_contest_row, parent, false);
         return new MakeQuizViewHodler(view);
     }
 
@@ -54,7 +53,7 @@ public class MakeQuizRowAdapter extends RecyclerView.Adapter<MakeQuizRowAdapter.
         public MakeQuizViewHodler(@NonNull View itemView) {
             super(itemView);
             numberOfContest = itemView.findViewById(R.id.text_test_number);
-            suffle = itemView.findViewById(R.id.make_quizz_row_suffle_im);
+            suffle = itemView.findViewById(R.id.choose_contest_suffle_im);
             state = itemView.findViewById(R.id.state_im);
             itemView.setOnClickListener(this);
         }
