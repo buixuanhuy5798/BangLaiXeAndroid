@@ -4,19 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.drivinglicensequizz.R;
+import com.example.drivinglicensequizz.data.model.Question;
+import com.example.drivinglicensequizz.data.model.TypeOfContest;
+import com.example.drivinglicensequizz.data.source.DatabaseHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChooseContestActivity extends AppCompatActivity implements ChooseContestRowAdapter.ItemClickListener {
 
-    int typeOfContext = 1;
+    DatabaseHelper databaseHelper = new DatabaseHelper(this);
+    int typeOfContest = 0;
+    ChooseContestUseCase useCase = new ChooseContestUseCase();
     ImageButton backButton;
     RecyclerView recyclerView;
     ChooseContestRowAdapter chooseContestRowAdapter;
+    List<List<Question>> questionsPerContest = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +52,14 @@ public class ChooseContestActivity extends AppCompatActivity implements ChooseCo
     }
 
     private void setUpData() {
+        Intent intent = getIntent();
+        typeOfContest = intent.getIntExtra("TypeOfContest", 1);
         chooseContestRowAdapter = new ChooseContestRowAdapter(this, this);
         GridLayoutManager layout = new GridLayoutManager(this,3);
         recyclerView.setLayoutManager(layout);
         recyclerView.setAdapter(chooseContestRowAdapter);
+        questionsPerContest = useCase.setQuestionForEachContest(typeOfContest, databaseHelper.getAllQuestions(typeOfContest));
+        Log.d("TEST", String.valueOf(questionsPerContest.size())) ;
     }
 
     @Override
@@ -56,7 +70,8 @@ public class ChooseContestActivity extends AppCompatActivity implements ChooseCo
 
     @Override
     public void onClick(View view, int position) {
-        Log.d("TYPE", String.valueOf(typeOfContext));
+        Log.d("TYPE", String.valueOf(typeOfContest));
         Log.d("TEST", String.valueOf(position+1));
     }
 }
+

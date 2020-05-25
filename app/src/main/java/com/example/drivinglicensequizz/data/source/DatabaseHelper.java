@@ -105,7 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return signs;
     }
 
-    public List<Question> getAllQuestionsA1A2(int type) {
+    public List<Question> getAllQuestions(int type) {
         List<Question> questions = new ArrayList<>();
         SQLiteDatabase db = null;
         try {
@@ -115,9 +115,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         Cursor cursor ;
         if (type == TypeOfContest.a1a2) {
-            cursor = db.rawQuery("SELECT * FROM CAUHOI WHERE LOAIBANG2 = 0", null);
+            cursor = db.rawQuery("SELECT * FROM CAUHOI WHERE LOAIBANG2 = 0 ORDER BY id", null);
         } else {
-            cursor = db.rawQuery("SELECT * FROM CAUHOI", null);
+            cursor = db.rawQuery("SELECT * FROM CAUHOI ORDER BY id", null);
         }
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
