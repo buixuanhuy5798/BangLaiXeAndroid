@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.traffic_sign;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,17 +8,20 @@ import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.example.drivinglicensequizz.R;
+import com.example.drivinglicensequizz.data.model.TrafficSign;
+import com.example.drivinglicensequizz.data.source.DatabaseHelper;
 
 import java.io.IOException;
 import java.util.List;
 
 public class TrafficSignActivity extends AppCompatActivity implements TrafficSignAdapter.OnItemVisible {
 
-    TraficSignDBHelper trafficSignsHelper = new TraficSignDBHelper(this);
+    DatabaseHelper trafficSignsHelper = new DatabaseHelper(this);
     ImageButton backButton;
     List<TrafficSign> signs;
     RecyclerView recyclerView;

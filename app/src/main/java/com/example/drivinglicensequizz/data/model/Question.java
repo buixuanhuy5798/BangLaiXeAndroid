@@ -1,8 +1,10 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.data.model;
 
 import android.graphics.Bitmap;
 
-public class Question {
+import io.realm.RealmObject;
+
+public class Question  {
     private int id;
     private int anh;
     private String cauhoi;
@@ -27,6 +29,8 @@ public class Question {
         this.loaibang = loaibang;
         this.loaibang2 = loaibang2;
     }
+
+    public Question() { }
 
     public int getId() {
         return id;

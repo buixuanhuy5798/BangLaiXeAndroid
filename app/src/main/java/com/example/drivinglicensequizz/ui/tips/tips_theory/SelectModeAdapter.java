@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.tips.tips_theory;
 
 import android.app.Activity;
 
@@ -6,6 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.drivinglicensequizz.LyThuyetFragment;
+import com.example.drivinglicensequizz.ThucHanhFragment;
 
 class SelectModeAdapter extends FragmentPagerAdapter {
 

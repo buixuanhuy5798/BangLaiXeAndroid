@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.questions;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,19 +14,24 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.drivinglicensequizz.R;
+import com.example.drivinglicensequizz.data.model.Question;
+import com.example.drivinglicensequizz.data.model.TypeOfContest;
+import com.example.drivinglicensequizz.data.source.DatabaseHelper;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionsActivity extends AppCompatActivity {
 
-    TraficSignDBHelper trafficSignsHelper = new TraficSignDBHelper(this);
+    DatabaseHelper trafficSignsHelper = new DatabaseHelper(this);
     List<Question> questions;
     List<List<Question>> questionsPerPage = new ArrayList<>();
     List<Question> dataOnRyclerView = new ArrayList<>();
     QuestionAdapter questionAdapter;
 
-    int typeOfContext = 1;
+    int typeOfContest = 1;
     int maxPage = 10;
     int pageNumber = 1;
 
@@ -84,7 +89,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
     private List<List<Question>> createQuestiosnPerPage(List<Question> questions) {
         List<List<Question>> quesPerPage = new ArrayList<>();
-        if (typeOfContext == TypeOfContest.a1a2) {
+        if (typeOfContest == TypeOfContest.a1a2) {
             for (int i = 0; i <= 8; i++) {
                 List<Question> ques = new ArrayList<>();
                 for (int k = i*15; k < (i+1) * 15; k++) {
@@ -140,16 +145,16 @@ public class QuestionsActivity extends AppCompatActivity {
 
     private void setUpData() {
         Intent intent = getIntent();
-        typeOfContext = intent.getIntExtra("TypeOfContest", 1);
-        if (typeOfContext == TypeOfContest.a1a2) {
-            questions = trafficSignsHelper.getAllQuestionsA1A2(TypeOfContest.a1a2);
+        typeOfContest = intent.getIntExtra("TypeOfContest", 1);
+        if (typeOfContest == TypeOfContest.a1a2) {
+            questions = trafficSignsHelper.getAllQuestions(TypeOfContest.a1a2);
             addImageToArray();
             questionsPerPage = createQuestiosnPerPage(questions);
             titleTextView.setText("Lý thuyết A1,A2");
             maxPage = 10;
             countOfPagesTextView.setText("/" + String.valueOf(maxPage));
         } else {
-            questions = trafficSignsHelper.getAllQuestionsA1A2(TypeOfContest.b1b2);
+            questions = trafficSignsHelper.getAllQuestions(TypeOfContest.b1b2);
             addImageToArray();
             questionsPerPage = createQuestiosnPerPage(questions);
             titleTextView.setText("Lý thuyết B1,B2");
@@ -157,7 +162,7 @@ public class QuestionsActivity extends AppCompatActivity {
             countOfPagesTextView.setText("/" + String.valueOf(maxPage));
         }
         dataOnRyclerView = questionsPerPage.get(0);
-        questionAdapter = new QuestionAdapter(this, dataOnRyclerView,0, typeOfContext);
+        questionAdapter = new QuestionAdapter(this, dataOnRyclerView,0, typeOfContest);
         recyclerView.setAdapter(questionAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

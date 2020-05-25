@@ -1,8 +1,7 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.custom_ui;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,9 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
+import com.example.drivinglicensequizz.R;
+import com.example.drivinglicensequizz.data.model.TypeOfContest;
 
 public class OptionDialog extends DialogFragment {
     private Button a1Buton;

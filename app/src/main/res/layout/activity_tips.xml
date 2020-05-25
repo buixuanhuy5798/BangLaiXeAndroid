@@ -5,7 +5,7 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".TheoryTipActivity">
+    tools:context=".ui.tips.tips_theory.TheoryTipActivity">
 
     <LinearLayout
         android:id="@+id/navigationBar"
@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.drivinglicensequizz.CustomViewPager
+        <com.example.drivinglicensequizz.ui.custom_ui.CustomViewPager
             android:id="@+id/vp_tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:layout_alignParentTop="true"
             android:background="@android:color/white">
 
-        </com.example.drivinglicensequizz.CustomViewPager>
+        </com.example.drivinglicensequizz.ui.custom_ui.CustomViewPager>
 
         <LinearLayout
             android:id="@+id/viewGroupButtonTip"

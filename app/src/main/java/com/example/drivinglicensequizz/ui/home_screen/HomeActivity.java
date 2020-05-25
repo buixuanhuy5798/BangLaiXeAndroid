@@ -1,27 +1,34 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.home_screen;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.drivinglicensequizz.ImagePanelFragment;
+import com.example.drivinglicensequizz.ui.choose_contest.ChooseContestActivity;
+import com.example.drivinglicensequizz.ui.custom_ui.OptionDialog;
+import com.example.drivinglicensequizz.ui.questions.QuestionsActivity;
+import com.example.drivinglicensequizz.R;
+import com.example.drivinglicensequizz.ui.tips.tips_theory.TheoryTipActivity;
+import com.example.drivinglicensequizz.ui.traffic_sign.TrafficSignActivity;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements OptionDialog.CheckTypeContest {
 
     private ImageButton trafficSign;
     private ImageButton questionButton;
+    private ImageButton makeQuizzButton;
     private FragmentStatePagerAdapter pagerAdapter;
     private ImageButton tipButton;
+
+    int checkButtonTapped = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,16 @@ public class HomeActivity extends AppCompatActivity implements OptionDialog.Chec
         questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                checkButtonTapped = 1;
+                OptionDialog dialog = new OptionDialog();
+                dialog.show(getSupportFragmentManager(), "OptionDialog");
+            }
+        });
+        makeQuizzButton = findViewById(R.id.make_quizz_button);
+        makeQuizzButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkButtonTapped = 2;
                 OptionDialog dialog = new OptionDialog();
                 dialog.show(getSupportFragmentManager(), "OptionDialog");
             }
@@ -60,9 +77,14 @@ public class HomeActivity extends AppCompatActivity implements OptionDialog.Chec
 
     @Override
     public void sendTypeContest(int type) {
-        Intent homeToQuestionIntent = new Intent(HomeActivity.this, QuestionsActivity.class);
-        homeToQuestionIntent.putExtra("TypeOfContest", type);
-        startActivity(homeToQuestionIntent);
+        Intent intent;
+        if (checkButtonTapped == 1) {
+            intent = new Intent(HomeActivity.this, QuestionsActivity.class);
+        } else {
+            intent = new Intent(HomeActivity.this, ChooseContestActivity.class);
+        }
+        intent.putExtra("TypeOfContest", type);
+        startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
@@ -90,7 +112,7 @@ public class HomeActivity extends AppCompatActivity implements OptionDialog.Chec
             Fragment fragment = new ImagePanelFragment(listImage.get(i), listTitle.get(i));
             fragmentList.add(fragment);
         }
-        pagerAdapter = new MainPagerAdapter(getSupportFragmentManager(), 0, fragmentList);
+        pagerAdapter = new HomePagerAdapter(getSupportFragmentManager(), 0, fragmentList);
         ViewPager pager = findViewById(R.id.pagerTitle);
         pager.setAdapter(pagerAdapter);
     }

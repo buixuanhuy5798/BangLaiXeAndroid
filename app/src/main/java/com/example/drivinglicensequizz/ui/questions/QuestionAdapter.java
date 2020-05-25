@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.questions;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.drivinglicensequizz.R;
+import com.example.drivinglicensequizz.data.model.Question;
+import com.example.drivinglicensequizz.data.model.TypeOfContest;
 
 import java.util.List;
 

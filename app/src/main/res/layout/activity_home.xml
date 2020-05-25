@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".HomeActivity">
+    tools:context=".ui.home_screen.HomeActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
             app:layout_constraintTop_toBottomOf="@id/traffic_sign" />
 
         <ImageButton
-            android:id="@+id/make_quizz"
+            android:id="@+id/make_quizz_button"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_margin="20dp"
@@ -83,7 +83,7 @@
             android:textColor="#111"
             android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/make_quizz" />
+            app:layout_constraintTop_toBottomOf="@id/make_quizz_button" />
 
         <ImageButton
             android:id="@+id/questions"

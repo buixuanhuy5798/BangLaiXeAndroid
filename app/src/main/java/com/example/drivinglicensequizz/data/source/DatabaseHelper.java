@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.data.source;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -6,6 +6,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.drivinglicensequizz.data.model.Question;
+import com.example.drivinglicensequizz.data.model.Tip;
+import com.example.drivinglicensequizz.data.model.TrafficSign;
+import com.example.drivinglicensequizz.data.model.TypeOfContest;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,13 +20,13 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TraficSignDBHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "BANGLAIXE.db";
     private final static String DATABASE_PATH = "/data/data/com.example.drivinglicensequizz/databases/";
     private Context mContext;
 
-    public TraficSignDBHelper(@Nullable Context context) {
+    public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.mContext = context;
     }
@@ -100,7 +105,7 @@ public class TraficSignDBHelper extends SQLiteOpenHelper {
         return signs;
     }
 
-    public List<Question> getAllQuestionsA1A2(int type) {
+    public List<Question> getAllQuestions(int type) {
         List<Question> questions = new ArrayList<>();
         SQLiteDatabase db = null;
         try {
@@ -110,9 +115,9 @@ public class TraficSignDBHelper extends SQLiteOpenHelper {
         }
         Cursor cursor ;
         if (type == TypeOfContest.a1a2) {
-            cursor = db.rawQuery("SELECT * FROM CAUHOI WHERE LOAIBANG2 = 0", null);
+            cursor = db.rawQuery("SELECT * FROM CAUHOI WHERE LOAIBANG2 = 0 ORDER BY id", null);
         } else {
-            cursor = db.rawQuery("SELECT * FROM CAUHOI", null);
+            cursor = db.rawQuery("SELECT * FROM CAUHOI ORDER BY id", null);
         }
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -131,6 +136,27 @@ public class TraficSignDBHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return questions;
+    }
+
+    public List<Tip> getAllTips() {
+        List<Tip> tips = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = openDatabase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Cursor cursor = db.rawQuery("SELECT id, loai, name FROM MEO_3", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            int id = cursor.getInt(0);
+            int loai = cursor.getInt(1);
+            String name = cursor.getString(2);
+            tips.add(new Tip(id, loai, name));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return tips;
     }
 }
 
