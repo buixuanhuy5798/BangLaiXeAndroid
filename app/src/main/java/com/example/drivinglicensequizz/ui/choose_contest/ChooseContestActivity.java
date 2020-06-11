@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.drivinglicensequizz.DoContestActivity;
 import com.example.drivinglicensequizz.R;
 import com.example.drivinglicensequizz.data.model.Question;
 import com.example.drivinglicensequizz.data.model.TypeOfContest;
@@ -26,7 +28,7 @@ public class ChooseContestActivity extends AppCompatActivity implements ChooseCo
     ImageButton backButton;
     RecyclerView recyclerView;
     ChooseContestRowAdapter chooseContestRowAdapter;
-    List<List<Question>> questionsPerContest = new ArrayList<>();
+    List<ArrayList<Question>> questionsPerContest = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,11 @@ public class ChooseContestActivity extends AppCompatActivity implements ChooseCo
 
     @Override
     public void onClick(View view, int position) {
+        Intent intent = new Intent(this, DoContestActivity.class);
+        intent.putParcelableArrayListExtra("listQuestionContest", questionsPerContest.get(position));
+        intent.putExtra("typeOfContest", typeOfContest);
+        intent.putExtra("numberContest", position + 1);
+        startActivity(intent);
         Log.d("TYPE", String.valueOf(typeOfContest));
         Log.d("TEST", String.valueOf(position+1));
     }
