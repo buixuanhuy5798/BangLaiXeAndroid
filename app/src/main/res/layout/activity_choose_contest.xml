@@ -36,11 +36,14 @@
             android:scaleType="centerCrop"
             android:background="@color/statusBarColor"/>
         <Button
+            android:id="@+id/showHistory"
             android:layout_width="70dp"
             android:layout_height="30dp"
-            android:text="Lich su"
+            android:text="Lịch sử"
+            android:textSize="15sp"
             android:textColor="@android:color/white"
             android:textAlignment="textEnd"
+            android:textAllCaps="false"
             android:background="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

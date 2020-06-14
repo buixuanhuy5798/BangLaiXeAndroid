@@ -20,6 +20,7 @@ public class Question implements Parcelable {
     private String loaibang;
     private String loaibang2;
     private Bitmap bienbao;
+    private String anwser;
 
     public Question(int id, int anh, String cauhoi, String a, String b, String c, String d, String dapan, String loaibang, String loaibang2) {
         this.id = id;
@@ -48,6 +49,7 @@ public class Question implements Parcelable {
         loaibang = in.readString();
         loaibang2 = in.readString();
         bienbao = in.readParcelable(Bitmap.class.getClassLoader());
+        anwser = in.readString();
     }
 
     public static final Creator<Question> CREATOR = new Creator<Question>() {
@@ -150,6 +152,14 @@ public class Question implements Parcelable {
         this.bienbao = bienbao;
     }
 
+    public String getAnwser() {
+        return anwser;
+    }
+
+    public void setAnwser(String anwser) {
+        this.anwser = anwser;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -168,5 +178,6 @@ public class Question implements Parcelable {
         dest.writeString(loaibang);
         dest.writeString(loaibang2);
         dest.writeParcelable(bienbao, flags);
+        dest.writeString(anwser);
     }
 }
