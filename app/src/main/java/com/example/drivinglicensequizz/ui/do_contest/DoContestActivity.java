@@ -145,7 +145,7 @@ public class DoContestActivity extends AppCompatActivity {
         addImageToArray();
         dataOnRyclerView = questions.get(0);
         numberOfQuestion.setText("Câu " + String.valueOf(numberQuestion) + "/" + String.valueOf(maxQuestion));
-        questionContestAdapter = new QuestionContestAdapter(this, dataOnRyclerView, 1, typeOfContest, false, false);
+        questionContestAdapter = new QuestionContestAdapter(this, dataOnRyclerView, 1, typeOfContest, false);
         recyclerViewContest.setAdapter(questionContestAdapter);
         recyclerViewContest.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -214,7 +214,7 @@ public class DoContestActivity extends AppCompatActivity {
 
     private void saveContest(int mark) {
         int id = sttContest;
-        Long saveAt = new Date().getTime();
+        long timeStamp = new Date().getTime();
         boolean isA1A2 = typeOfContest == 0;
         RealmList<QuestionRealm> listQuestion = new RealmList<>();
 
@@ -231,10 +231,10 @@ public class DoContestActivity extends AppCompatActivity {
         mRealm.insertOrUpdate(historyRealm);
 
         ContestStateRealm contestStateRealm = new ContestStateRealm();
+        contestStateRealm.setTimeStamp(timeStamp);
         contestStateRealm.setId(id);
         contestStateRealm.setA1A2(isA1A2);
         contestStateRealm.setPassed(isA1A2 ? mark >= 16 : mark >= 26);
-        contestStateRealm.setSaveAt(saveAt);
         mRealm.insertOrUpdate(contestStateRealm);
 
         mRealm.commitTransaction();

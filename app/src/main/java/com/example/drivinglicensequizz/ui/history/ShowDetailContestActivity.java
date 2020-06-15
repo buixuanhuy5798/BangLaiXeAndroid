@@ -70,7 +70,7 @@ public class ShowDetailContestActivity extends AppCompatActivity {
         addImageToArray();
         dataOnRyclerView = questions.get(0);
         numberOfQuestion.setText("Câu " + String.valueOf(numberQuestion) + "/" + String.valueOf(maxQuestion));
-        questionContestAdapter = new QuestionContestAdapter(this, dataOnRyclerView, 1, questions.size() == 20 ? 0 : 1, true, true);
+        questionContestAdapter = new QuestionContestAdapter(this, dataOnRyclerView, 1, questions.size() == 20 ? 0 : 1, true);
         for (Question question: questions) {
             answers.add(question.getAnwser());
         }

@@ -11,16 +11,16 @@ import io.realm.annotations.PrimaryKey;
 public class ContestStateRealm extends RealmObject {
 
     @PrimaryKey
+    private long timeStamp;
     private int id;
     private boolean isA1A2;
     private boolean isPassed;
-    private long saveAt;
 
-    public ContestStateRealm(int id, boolean isA1A2, boolean isPassed, long saveAt) {
+    public ContestStateRealm(int id, boolean isA1A2, boolean isPassed, long timeStamp) {
         this.id = id;
         this.isA1A2 = isA1A2;
         this.isPassed = isPassed;
-        this.saveAt = saveAt;
+        this.timeStamp = timeStamp;
     }
 
     public ContestStateRealm() {
@@ -50,11 +50,11 @@ public class ContestStateRealm extends RealmObject {
         isPassed = passed;
     }
 
-    public long getSaveAt() {
-        return saveAt;
+    public long getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setSaveAt(long saveAt) {
-        this.saveAt = saveAt;
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }
