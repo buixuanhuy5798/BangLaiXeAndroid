@@ -46,7 +46,7 @@ public class TheoryTipActivity extends AppCompatActivity {
             public void onClick(View v) {
                 vp.setCurrentItem(0);
                 lythuyetButton.setBackgroundColor(Color.parseColor("#FFFDC313"));
-                thuchanhButton.setBackgroundResource(android.R.drawable.btn_default);
+                thuchanhButton.setBackgroundColor(Color.parseColor("#FFAAAAAA"));
             }
         });
 
@@ -55,7 +55,7 @@ public class TheoryTipActivity extends AppCompatActivity {
             public void onClick(View v) {
                 vp.setCurrentItem(1);
                 thuchanhButton.setBackgroundColor(Color.parseColor("#FFFDC313"));
-                lythuyetButton.setBackgroundResource(android.R.drawable.btn_default);
+                lythuyetButton.setBackgroundColor(Color.parseColor("#FFAAAAAA"));
             }
         });
     }

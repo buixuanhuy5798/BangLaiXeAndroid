@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.tips.tips_practise;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,14 +7,16 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class KinhNghiemA1A2 extends AppCompatActivity {
+import com.example.drivinglicensequizz.R;
+
+public class KinhNghiemB1B2 extends AppCompatActivity {
 
     private ImageButton backButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.kinhnghiem_a1a2);
+        setContentView(R.layout.kinhnghiem_b1b2);
         backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override

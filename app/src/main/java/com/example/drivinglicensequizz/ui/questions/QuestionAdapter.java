@@ -4,20 +4,18 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.drivinglicensequizz.ui.QuestionViewHolder;
 import com.example.drivinglicensequizz.R;
 import com.example.drivinglicensequizz.data.model.Question;
 import com.example.drivinglicensequizz.data.model.TypeOfContest;
 
 import java.util.List;
 
-public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder> {
+public class QuestionAdapter extends RecyclerView.Adapter<QuestionViewHolder> {
     Context context;
     List<Question> questions;
     int page;
@@ -82,36 +80,5 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
         this.questions = ques;
         this.page = page;
         notifyDataSetChanged();
-    }
-
-    public class QuestionViewHolder extends RecyclerView.ViewHolder {
-        TextView questionNumber;
-        TextView question;
-        ImageView image;
-        ConstraintLayout layoutA;
-        ConstraintLayout layoutB;
-        ConstraintLayout layoutC;
-        ConstraintLayout layoutD;
-        TextView a;
-        TextView b;
-        TextView c;
-        TextView d;
-        TextView answer;
-
-        public QuestionViewHolder(@NonNull View itemView) {
-            super(itemView);
-            questionNumber = itemView.findViewById(R.id.question_number_tv);
-            question = itemView.findViewById(R.id.question_tv);
-            a = itemView.findViewById(R.id.a_tv);
-            b = itemView.findViewById(R.id.b_tv);
-            c = itemView.findViewById(R.id.c_tv);
-            d = itemView.findViewById(R.id.d_tv);
-            layoutA = itemView.findViewById(R.id.layout_a_tv);
-            layoutB = itemView.findViewById(R.id.layout_b_tv);
-            layoutC = itemView.findViewById(R.id.layout_c_tv);
-            layoutD = itemView.findViewById(R.id.layout_d_tv);
-            answer = itemView.findViewById(R.id.answer_tv);
-            image = itemView.findViewById(R.id.image_question);
-        }
     }
 }

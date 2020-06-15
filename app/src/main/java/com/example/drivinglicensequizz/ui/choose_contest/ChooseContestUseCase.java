@@ -12,10 +12,10 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 public class ChooseContestUseCase {
-    public List<List<Question>> setQuestionForEachContestA1A2(List<Question> questions) {
-        List<List<Question>> questionsPerContest = new ArrayList<>();
+    public List<ArrayList<Question>> setQuestionForEachContestA1A2(List<Question> questions) {
+        List<ArrayList<Question>> questionsPerContest = new ArrayList<>();
         for (int k = 0; k<=13; k++) {
-            List<Question>ques = new ArrayList<>();
+            ArrayList<Question>ques = new ArrayList<>();
             ques.add(questions.get(k%12));
             for (int i=0; i<=6; i++) {
                 int temp = k*i;
@@ -105,7 +105,7 @@ public class ChooseContestUseCase {
             int[] array4 = shuffleArray(IntStream.rangeClosed(75, 79).toArray()); // Lay 1 cau
             int[] array5 = shuffleArray(IntStream.rangeClosed(80, 114).toArray()); // Lay 5 cau
             int[] array6 = shuffleArray(IntStream.rangeClosed(115, 150).toArray()); // Lay 5 cau
-            List<Question>ques = new ArrayList<>();
+            ArrayList<Question>ques = new ArrayList<>();
             ques.add(questions.get(array1[0]));
             for (int i = 0; i <= 6; i++) {
                 ques.add(questions.get(array2[i]));
@@ -123,10 +123,10 @@ public class ChooseContestUseCase {
         return  questionsPerContest;
     }
 
-    public List<List<Question>> setQuestionForEachContestB1B2(List<Question> questions) {
-        List<List<Question>> questionsPerContest = new ArrayList<>();
+    public List<ArrayList<Question>> setQuestionForEachContestB1B2(List<Question> questions) {
+        List<ArrayList<Question>> questionsPerContest = new ArrayList<>();
         for (int k = 0; k<=13; k++) {
-            List<Question> ques = new ArrayList<>();
+            ArrayList<Question> ques = new ArrayList<>();
             ques.add(questions.get(k));
             for (int i = 0;i <= 6;i++) {
                 int temp = k*i;
@@ -168,7 +168,7 @@ public class ChooseContestUseCase {
             int[] array6 = shuffleArray(IntStream.rangeClosed(200, 254).toArray()); // Lay 1 cau
             int[] array7 = shuffleArray(IntStream.rangeClosed(255, 354).toArray()); // Lay 9 cau
             int[] array8 = shuffleArray(IntStream.rangeClosed(355, 449).toArray()); // Lay 9 cau
-            List<Question> ques = new ArrayList<>();
+            ArrayList<Question> ques = new ArrayList<>();
             ques.add(questions.get(array1[0]));
             for (int i=0;i<=6;i++) {
                 ques.add(questions.get(array2[i]));
@@ -188,7 +188,7 @@ public class ChooseContestUseCase {
         return  questionsPerContest;
     }
 
-    public List<List<Question>> setQuestionForEachContest(int typeOfContext, List<Question> questions) {
+    public List<ArrayList<Question>> setQuestionForEachContest(int typeOfContext, List<Question> questions) {
         if (typeOfContext == TypeOfContest.a1a2) {
             return setQuestionForEachContestA1A2(questions);
         } else {

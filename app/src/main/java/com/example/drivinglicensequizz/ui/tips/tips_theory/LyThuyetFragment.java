@@ -1,4 +1,4 @@
-package com.example.drivinglicensequizz;
+package com.example.drivinglicensequizz.ui.tips.tips_theory;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.drivinglicensequizz.R;
 import com.example.drivinglicensequizz.data.model.Tip;
 import com.example.drivinglicensequizz.data.source.DatabaseHelper;
 
