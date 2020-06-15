@@ -17,9 +17,9 @@
 
         <ImageView
             android:id="@+id/state_im"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/pass"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/untest_state"
             app:layout_constraintTop_toTopOf="@id/choose_contest_row_bg"
             app:layout_constraintEnd_toEndOf="@id/choose_contest_row_bg"
             android:layout_marginEnd="11dp"
@@ -38,7 +38,6 @@
         android:id="@+id/text_test_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5"
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:textSize="29sp"
