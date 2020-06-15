@@ -15,11 +15,11 @@
         <activity android:name=".ui.traffic_sign.TrafficSignActivity" />
         <activity android:name=".ui.home_screen.HomeActivity" />
         <activity android:name=".ui.tips.tips_theory.TheoryTipActivity" />
-        <activity android:name=".KinhNghiemA1A2" />
-        <activity android:name=".KinhNghiemB1B2" />
-        <activity android:name=".DoContestActivity" />
-        <activity android:name=".HistoryContestActivity" />
-        <activity android:name=".ShowDetailContestActivity" />
+        <activity android:name=".ui.tips.tips_practise.KinhNghiemA1A2" />
+        <activity android:name=".ui.tips.tips_practise.KinhNghiemB1B2" />
+        <activity android:name=".ui.do_contest.DoContestActivity" />
+        <activity android:name=".ui.history.HistoryContestActivity" />
+        <activity android:name=".ui.history.ShowDetailContestActivity" />
         <activity android:name=".ui.splash.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
