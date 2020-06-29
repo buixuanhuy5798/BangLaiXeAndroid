@@ -22,6 +22,7 @@ import com.example.drivinglicensequizz.MapperService;
 import com.example.drivinglicensequizz.R;
 import com.example.drivinglicensequizz.data.model.Question;
 import com.example.drivinglicensequizz.entity.ContestStateRealm;
+import com.example.drivinglicensequizz.entity.ContestStatusRealm;
 import com.example.drivinglicensequizz.entity.HistoryRealm;
 import com.example.drivinglicensequizz.entity.QuestionRealm;
 
@@ -57,14 +58,8 @@ public class DoContestActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.do_contest);
-        setUpLayout();
-        Intent intent = getIntent();
-        questions = intent.getParcelableArrayListExtra("listQuestionContest");
-        typeOfContest = intent.getIntExtra("typeOfContest",1);
-        maxQuestion = typeOfContest == 0 ? 20 : 30;
-        timeInMilis = typeOfContest == 0 ? 900001 : 1200001;
-        sttContest = intent.getIntExtra("numberContest", 1);
         mRealm = Realm.getDefaultInstance();
+        setUpLayout();
         setUpAction();
         setupData();
 
@@ -141,11 +136,17 @@ public class DoContestActivity extends AppCompatActivity {
     }
 
     private void setupData() {
+        Intent intent = getIntent();
+        questions = intent.getParcelableArrayListExtra("listQuestionContest");
+        typeOfContest = intent.getIntExtra("typeOfContest",1);
+        maxQuestion = typeOfContest == 0 ? 20 : 30;
+        timeInMilis = typeOfContest == 0 ? 900001 : 1200001;
+        sttContest = intent.getIntExtra("numberContest", 1);
         titleContest.setText("Đề " + String.valueOf(sttContest));
         addImageToArray();
         dataOnRyclerView = questions.get(0);
         numberOfQuestion.setText("Câu " + String.valueOf(numberQuestion) + "/" + String.valueOf(maxQuestion));
-        questionContestAdapter = new QuestionContestAdapter(this, dataOnRyclerView, 1, typeOfContest, false, false);
+        questionContestAdapter = new QuestionContestAdapter(this, dataOnRyclerView, 1, typeOfContest, false);
         recyclerViewContest.setAdapter(questionContestAdapter);
         recyclerViewContest.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -170,7 +171,7 @@ public class DoContestActivity extends AppCompatActivity {
     private void addImageToArray() {
         for(int i = 0; i < questions.size(); i++) {
             try {
-                Bitmap bitmap =  BitmapFactory.decodeStream(getAssets().open(String.valueOf(questions.get(i).getId()) + ".png"));
+                Bitmap bitmap = BitmapFactory.decodeStream(getAssets().open(String.valueOf(questions.get(i).getId()) + ".png"));
                 questions.get(i).setBienbao(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -214,7 +215,6 @@ public class DoContestActivity extends AppCompatActivity {
 
     private void saveContest(int mark) {
         int id = sttContest;
-        Long saveAt = new Date().getTime();
         boolean isA1A2 = typeOfContest == 0;
         RealmList<QuestionRealm> listQuestion = new RealmList<>();
 
@@ -231,11 +231,18 @@ public class DoContestActivity extends AppCompatActivity {
         mRealm.insertOrUpdate(historyRealm);
 
         ContestStateRealm contestStateRealm = new ContestStateRealm();
+        contestStateRealm.setId_type(typeOfContest + "-" + id);
         contestStateRealm.setId(id);
         contestStateRealm.setA1A2(isA1A2);
         contestStateRealm.setPassed(isA1A2 ? mark >= 16 : mark >= 26);
-        contestStateRealm.setSaveAt(saveAt);
         mRealm.insertOrUpdate(contestStateRealm);
+
+        ContestStatusRealm contestStatusRealm = new ContestStatusRealm();
+        contestStatusRealm.setId_typeOfContest(String.valueOf(typeOfContest) + "-" + String.valueOf(id));
+        contestStatusRealm.setId(id);
+        contestStatusRealm.setTypeOfContest(typeOfContest);
+        contestStatusRealm.setStatus(isA1A2 ? (mark >= 16 ? "PASSED" : "FAILED") : (mark >= 26 ? "PASSED" : "FAILED"));
+        mRealm.insertOrUpdate(contestStatusRealm);
 
         mRealm.commitTransaction();
         mRealm.close();

@@ -52,7 +52,7 @@ public class HistoryContestActivity extends AppCompatActivity {
     private void readAllContests() {
         mRealm = Realm.getDefaultInstance();
         mRealm.beginTransaction();
-        RealmResults<ContestStateRealm> resultAllContests = mRealm.where(ContestStateRealm.class).findAll().sort("saveAt", Sort.DESCENDING);
+        RealmResults<ContestStateRealm> resultAllContests = mRealm.where(ContestStateRealm.class).findAll().sort("id_type", Sort.DESCENDING);
 
         if (resultAllContests.size() > limit) {
             ContestStateRealm contestStateRealm = mRealm.where(ContestStateRealm.class).findFirst();
@@ -92,6 +92,7 @@ public class HistoryContestActivity extends AppCompatActivity {
                     intent.putParcelableArrayListExtra("listQuestionContest", historyQuestions);
                     intent.putExtra("sttContest", historyRealm.getId());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 }
             });
         }

@@ -25,16 +25,14 @@ public class QuestionContestAdapter extends RecyclerView.Adapter<QuestionViewHol
     int typeContest;
     boolean [][]yourAnswer;
     boolean isSubmitted;
-    boolean fromDatabase;
     List<String> answersSaved = new ArrayList<>();
 
-    public QuestionContestAdapter(Context context, Question question, int questionNumber, int typeContest, boolean isSubmitted, boolean fromDatabase) {
+    public QuestionContestAdapter(Context context, Question question, int questionNumber, int typeContest, boolean isSubmitted) {
         this.context = context;
         this.question = question;
         this.typeContest = typeContest;
         this.questionNumber = questionNumber;
         this.isSubmitted = isSubmitted;
-        this.fromDatabase = fromDatabase;
         yourAnswer = new boolean [typeContest == 0 ? 20 : 30][4];
         for (boolean []eachQuestion : yourAnswer) {
             eachQuestion = new boolean[] {false, false, false, false};
